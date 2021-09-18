@@ -37,3 +37,8 @@ int main()
 cout<< findcnt(arr,sum,n);
     return 0;
 }
+
+
+
+
+//cout 3 hoga
