@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+ //gfg ka code h.
+
+int lcs(char* X, char* Y, int m, int n);  //ye declare krna pda wrna the function was not working.
+
+int shortestSuperSequence(char* X, char* Y)
+{
+    int m = strlen(X), n = strlen(Y);      //2 hi variable diye the isliye m,n lena pda.
+ 
+    // find lcs isliye ab lcs function me jaenge.
+    int l = lcs(X, Y, m, n);               //ye l me lcs ka answer stored h jo wha return statement me hota h.
+ 
+    // Result jisme dono str ko add krk common hata denge
+    return (m + n - l);
+}
+
+int lcs(char* X, char* Y, int m, int n)
+{
+    int L[m + 1][n + 1];    //general lcs problem code.
+    int i, j;        
+
+    for (i = 0; i <= m; i++) {
+        for (j = 0; j <= n; j++) {
+            if (i == 0 || j == 0)
+                L[i][j] = 0;
+ 
+            else if (X[i - 1] == Y[j - 1])
+                L[i][j] = L[i - 1][j - 1] + 1;
+ 
+            else
+                L[i][j] = max(L[i - 1][j], L[i][j - 1]);
+        }
+    }
+ 
+    
+    return L[m][n];
+}
+
+int main()
+{
+    char X[] = "AGGTAB";
+    char Y[] = "GXTXAYB";
+ 
+    cout << "Length of the shortest supersequence is "   
+         << shortestSuperSequence(X, Y) << endl;      //yha se is function me jaenge.
+
+    return 0;
+}
+//String "AGXGTXAYB" has both string 
+//"AGGTAB" and "GXTXAYB" as subsequences.
+//Length of the shortest supersequence  
+//= (Sum of lengths of given two strings) 
+//- (Length of LCS of two given strings) 
+//output is
+//length is 9.
