@@ -52,3 +52,4 @@ int main()
 //ek string se dusre me jane k liye lcs ka use kra h
 //lcs=ea, s1=heap ,so delete h,p from s1, output aya 2
 //ab add p in ea to output is 1.
+//Time Complexity: O(m * n)
