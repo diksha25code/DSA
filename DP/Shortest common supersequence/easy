@@ -39,3 +39,10 @@ int main()
     return 0;
 }
 
+//String "AGXGTXAYB" has both string 
+//"AGGTAB" and "GXTXAYB" as subsequences.
+//Length of the shortest supersequence  
+//= (Sum of lengths of given two strings) 
+//- (Length of LCS of two given strings) 
+//output is
+//length is 9.
