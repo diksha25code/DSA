@@ -49,4 +49,16 @@ int main()
 }
 
 //output yes
-//
+//ise asani se 2 pntr appraoch se bhi kr skte h
+/*
+if we want to match string s with string t:
+
+        int pntr = 0;
+        for (int i=0; i<t.length(); i++) {
+            if (t[i] == s[pntr]) {
+                pntr++;
+            }
+        }
+       
+        return pntr==s.length() ? true: false;
+*/
