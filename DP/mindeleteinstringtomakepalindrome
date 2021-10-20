@@ -1,3 +1,8 @@
+//same code for minimum no. of insertion in a string to make a palindrome.
+//s="aebcbda" ye string me lps lagaenge to "abcba" aega
+//ab no of del = 2 aur agr "abcba" me kuch insert krna h to wo bhi to 2 hi krenge thats why
+//no of insertion bhi = 2
+//ans: "aedbcbdea"
 
 #include <iostream>
 #include <algorithm>
