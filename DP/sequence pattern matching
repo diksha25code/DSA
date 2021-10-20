@@ -1,0 +1,52 @@
+#include <iostream>
+#include <algorithm>
+
+#include <vector>
+using namespace std;
+
+int lcs(string s1,string s2){    //general lcs code.
+    
+        int m=s1.size();
+    int n=s2.size();
+        
+        int dp[m+1][n+1];
+        
+        for(int i=0; i<m+1; i++)
+        {
+            for(int j=0;j<n+1;j++){
+                if(i==0 || j==0) dp[i][j]=0;
+            }
+        }
+        
+        for(int i=1; i<m+1; i++)
+        {
+            for(int j=1; j<n+1; j++)
+            {
+                if(s1[i-1]==s2[j-1])
+                    dp[i][j]=1+dp[i-1][j-1];
+                else
+                    dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+            }
+        }
+        
+         if(dp[m][n]=m) return true;      //the only addition condition
+         return false;                    //agr jo last block h dp[m][n] = m which is the shortest string agr same h to true wrna false.
+        //loophole ye h ki zruri nhi h hmesha ki s1 hi choti hogi to wha bhi condition change kr skte h.
+}
+
+void sequencepatternmatching(string s1,string s2){
+    
+    cout<<(lcs(s1,s2)?"yes":"no");      //yha se lcs me jaenge aur condition acc yes ya no aega.
+}
+
+int main()
+{
+    string s1="axy";
+    string s2="abdxcpy";
+    sequencepatternmatching(s1,s2);    //yha se fn call hoga.
+
+    return 0;
+}
+
+//output yes
+//
