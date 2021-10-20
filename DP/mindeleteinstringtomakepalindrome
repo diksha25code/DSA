@@ -5,9 +5,9 @@
 #include <vector>
 using namespace std;
 
-int lps(string s){
+int lps(string s){      //int me return hota h void me nhi.
     string s2=s;
-        reverse(s.begin(),s.end());
+        reverse(s.begin(),s.end());  //ise chalane k liye algorithm aur vector lena pdta h.
         int n=s.size();
         int dp[n+1][n+1];
         
@@ -29,21 +29,29 @@ int lps(string s){
             }
         }
         
-        return dp[n][n];
+        return dp[n][n];              //is ans ko len me store krenge.
         
 }
 
-void mindelinstringtomakepalindrome(string s){
-    int n=s.size();
+void mindelinstringtomakepalindrome(string s){   //void me cout hoga.
+    int n=s.size();                              
     
-    int len=lps(s);
-    cout<<"longestPalindromeSubseq is:"<<(n-len)<<endl;
-}
+    int len=lps(s);        //yha se lcs call hoga.
+    cout<<"longestPalindromeSubseq is:"<<(n-len)<<endl;  //prblm ka output yha se ara h.
+}         
 
 int main()
 {
     string s="agbcba";
-    mindelinstringtomakepalindrome(s);
+    mindelinstringtomakepalindrome(s);       //yha se function call hoga.
 
     return 0;
 }
+
+//general lps ko modify kra h bss
+//n-len krdenge to hme count of deletion mil jaega
+//count of changes mil jaega 
+//kitna change lga h use n se len banane me 
+//no of deletion is inversely proportional to length of string
+//jiski length zyada i.e. lcs uska no of deletion km
+//ab lcs ko bhi lps krna pdega bcoz que is asking for lps not lcs.
