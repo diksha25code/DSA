@@ -39,6 +39,7 @@ int main()
     return 0;
 }
 
+//scs+lcs=m+n
 //String "AGXGTXAYB" has both string 
 //"AGGTAB" and "GXTXAYB" as subsequences.
 //Length of the shortest supersequence  
