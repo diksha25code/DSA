@@ -5,8 +5,8 @@ using namespace std;
 
 int MatrixChainOrder(int p[], int i, int j)  //MCM
 {
-    if (i >= j)                              //i>j me koi element hi nhi h
-        return 0;                            //i==j ye valid hi nhi h
+    if (i >= j)                              //i>j me koi element hi nhi h(size=0)
+        return 0;                            //i==j ye valid hi nhi h(size=1)
     int k;                                   //ab string ko beech beech mese divide krne k liye k lenge
     int min = INT_MAX;                       //min lena h 
     int temp;                                //temp me temporary ans store krenge
