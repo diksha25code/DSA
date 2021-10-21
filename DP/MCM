@@ -1,0 +1,42 @@
+
+#include <iostream>
+
+#include <climits>
+
+using namespace std;
+
+int MatrixChainOrder(int p[], int i, int j)  //MCM
+{
+    if (i >= j)                              //i>j me koi element hi nhi h
+        return 0;                            //i==j ye valid hi nhi h
+    int k;                                   //ab string ko beech beech mese divide krne k liye k lenge
+    int min = INT_MAX;                       //min lena h 
+    int temp;                                //temp me temporary ans store krenge
+   
+    
+    for (k = i; k < j; k++)                  //(i to k),(k+1 to j),(a[i-1)*a[k]*a[j])
+    {                                        
+        temp = MatrixChainOrder(p, i, k)
+                + MatrixChainOrder(p, k + 1, j)
+                + p[i - 1] * p[k] * p[j];
+ 
+        if (temp < min)                      //ab minimum chahiye to temp ko har baar check kro min se
+            min = temp;                      //agr temp chota agya min se to min=temp
+    }
+ //firse loop chalega aur firse temp aega ab jo min achuka h usse comapre hoga temp agr chota hua to naye wale
+    //ko consider krenge wrna pehla wala hi.ans int me hoga aur return krne pr whi print hoga.
+    return min;
+}
+
+int main()
+{
+    int arr[] = { 1, 2, 3, 4, 3 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "Minimum number of multiplications is "
+         << MatrixChainOrder(arr, 1, n - 1);
+
+    return 0;
+}
+
+//output
+//Minimum number of multiplications is 30.
