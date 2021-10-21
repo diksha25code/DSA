@@ -1,8 +1,6 @@
 
 #include <iostream>
-
 #include <climits>
-
 using namespace std;
 
 int MatrixChainOrder(int p[], int i, int j)  //MCM
@@ -40,3 +38,8 @@ int main()
 
 //output
 //Minimum number of multiplications is 30.
+//algo:
+//1. find i,j
+//2. find base condition.
+//3. find k loop scheme
+//4. calculate min for temp.
