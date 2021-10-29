@@ -1,0 +1,33 @@
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    // int n;
+    // cin>>n;
+    string str="1,2,3";
+    
+    
+    stringstream s(str); //string alg alg hogyi
+    vector<int>v;
+    
+    for (int i; s >> i;) {             //ye pura input me comma seperate krne k liye h function.
+        v.push_back(i);
+        if (s.peek() == ',')
+            s.ignore();
+    }
+    
+    int count=0;                      //ye logic lgane k liye h ki string me sbse do values ka beech ka maximum difference.
+    for(int i=0;i<v.size();i++){
+        for(int j=i+1;j<v.size();j++){
+            if(v[i]<v[j]) count=max(count,v[j]-v[i]);
+        }
+    }
+     cout<<count<<endl;   
+    
+    return 0;
+}
+
+//output bhi 2 ara h.
