@@ -1,0 +1,29 @@
+#include <iostream>
+#include<map>
+#include<list>
+#include<queue>
+#include<set>
+using namespace std;
+
+int main()
+{
+    int v,e;     //vertex=6 edge=5
+    cin>>v>>e;
+    vector<int>adj[v+1];  
+    for(int i=0;i<e;i++){
+        int x,y;
+         cin>>x>>y;
+         adj[x].push_back(y);   //adj[1] prr 2 rkhdo
+         adj[y].push_back(x);   //adj[2] prr 1 rkhdo
+      }
+        return 0;
+}
+
+
+//output
+5 5
+1 2
+2 3
+2 5
+3 4
+4 5
