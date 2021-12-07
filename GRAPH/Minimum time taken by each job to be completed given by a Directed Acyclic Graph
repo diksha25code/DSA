@@ -4,7 +4,7 @@
 #include <queue>
 using namespace std;
 
-int main()           //doubt ye h ki input loop 1=0 se e tk hi q chala rhe h.
+int main()           //doubt ye h ki input loop 1=0 se e tk hi q chala rhe h. (qki input me vertex k baad wo edge pr hi jaega fir edge ko hi dekhenge na )
 {                   //bfs with indegree wala que acyclic mtlb ek hi direction me mtlb
     //input lete time ek ka hi indegree bdega
     int v,e;       //sirf que me ye vertex aur edge diye honge
@@ -13,7 +13,7 @@ int main()           //doubt ye h ki input loop 1=0 se e tk hi q chala rhe h.
     //input lene wala prgm
     vector<int>g[v+1];       //adjacancy vector bnalo jisme hm input store krenge
     vector<int>in(v+1,0);    //indegree use hogi
-    for(int i=0;i<e;i++){    //ab yha i=1 isliye nhi h qki input dekh rhe h jo hmesha 0 se hi shuru hoga aur e tk hi chalana h
+    for(int i=0;i<e;i++){    //ab yha i=1 isliye nhi h qki input dekh rhe h jo hmesha 0 se hi shuru hoga aur e tk hi chalana h(edge ko dekhenge jb tk edge h i.e. 13 tb tk loop chalega)
         int x,y;             //ab test cases k andar particular vertex kis vertex se judi h
         cin>>x>>y;           //for ex. x=1 y=2 to mtlb 1 ka sign 2 ki taraf h aur in[2]++ hoga
         g[x].push_back(y);   //ab input to store krado jese g[1] me 3,4,5 mtlb 1 3,4,5 ko pt kr rha h
