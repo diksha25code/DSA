@@ -1,0 +1,3 @@
+Spanning Tree :
+tree h to mtlb cyclic nhi hona chahiye graph ka hi ek form h jisme edges (vertice-1) hoti h aur sari vertices connected hona chahiye. 
+formula is (n^(n-2)) where n=vertice
