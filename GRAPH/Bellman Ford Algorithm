@@ -1,0 +1,70 @@
+undirected to directed
+will not work in a negative cycle mtlb cycle positive hi honi chahiye 
+prr negative wt cycle find krne me help krta h
+
+
+#include <iostream>
+#include <vector>    //vector k liye
+#include <climits>   //INT_MAX liya h isliye ise declare krna pdega
+using namespace std;
+
+struct node{       //node declare krne ye
+    int u;
+    int v;
+    int wt;
+    node(int first, int second, int weight){
+        u=first;
+        v=second;
+        wt=weight;
+    }
+};
+
+int main()
+{
+    int n,e;    //vertex,edge
+    cin>>n>>e;
+    vector<node> edges;   //edges naam ki node bnadi jisme u,v,wt h
+    for(int i=0;i<e;i++){
+        int u,v,wt;    //declare krdiya
+        cin>>u>>v>>wt;
+        edges.push_back(node(u,v,wt));  //yha graph bn gya h
+    }
+    
+    // int src=0;
+    // cin>>src;
+    vector<int> dis(n,INT_MAX);   //dis ka ek vector bnya h to store infinity 
+    dis[0]=0;
+    
+    for(int i=0;i<n-1;i++){    //pehla loop jo n-1 times tk chlega aur shortest distance dega
+        for(auto it: edges){   //ye logic lga diya bellmon ka
+            if(dis[it.u] + it.wt < dis[it.v]){
+                dis[it.v]= dis[it.u] + it.wt;
+            }
+        }
+    }
+    
+    int fl=0;   //yha dusra loop aega jb n-1 times chlne k baad wo 
+    //1 baar aur chlega to see if the cycle is negative or not to ab seedha if dekhenge agr condition apply hori h to negative h cycle wrna nhi h
+    for(auto it: edges){
+        if(dis[it.u] + it.wt < dis[it.v]){
+            cout<<"negative cycle";
+            fl=1;   //flag=1
+            break;
+        }
+    }
+
+if(!fl){    //flag=0 to shortest distance hm print krdenge
+    for(int i=0;i<n;i++){ 
+        cout<< i <<" "<<dis[i] <<endl;
+    }
+}
+
+    return 0;
+}
+
+output:
+3 3
+0 1 -1
+1 2 -2
+2 0 -3
+negative cycle
