@@ -1,0 +1,29 @@
+#include <iostream>
+#include <bitset>
+using namespace std;
+
+int main()
+{
+    
+    int n;
+    cin>>n;
+        int count=0;
+        
+        for(int i=n;i>0;i--){
+            bitset<32>b(i);
+            for(int i=0;i<32;i++){
+                if(b[i]==1) count++;
+            }
+            
+            
+        }
+        cout<< count;
+        // Your logic here
+    
+
+    return 0;
+}
+
+
+//n=4 pr
+output=5
