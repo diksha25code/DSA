@@ -13,15 +13,17 @@ int main()
         int l,r;
         cin>>l>>r;
        for(int i=l;i<r;i++){
-           if(b1[i]!=b2[i]) b1[i]=b2[i];
+           if(b1[i]!=b2[i]) b1[i]=b2[i];     //yha jo bhi same value nhi hogi use hm b1 me change krk save krlenge us particular pt pr hi
        }
-       int number = b1.to_ulong();
+       int number = b1.to_ulong();        //ab isse seedha number convert hojaega decimal me
     cout<< number<<endl;
-        for(int i=32;i>0;i--){
+    
+        for(int i=32;i>0;i--){  //yha sirf end me apna answer hoga baki me 000
             cout<<b1[i]<<" ";
         }
-        int n=b1.size();
-        for(int i=0;i<n;i++){
+        
+        int n=b1.size();    //yha prr n=32 hoga qki bit ka size bhi apn ne 32 hi liya tha 
+        for(int i=0;i<n;i++){   //aur isme start me apna ans hoga baki me 0000
             cout<<b1[i];
         }
         // Your logic here
