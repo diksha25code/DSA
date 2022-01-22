@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+//ab int me return statement deni hoti h wrna void me sirf return krk chod dete h 
+int divide(int dividend,int divisor){
+    int sign=((dividend<0) | (divisor<0))?-1:1;         //sign nikal lo ki dono mese agr kisi ka bhi sign <0 hua to -1 aega
+    
+    dividend=abs(dividend);            //yha bss +ve value lena h dono ki 
+    divisor=abs(divisor);
+    
+    int quotient=0;                 //yha actual divide hoga
+    while(dividend>=divisor){
+        dividend=dividend-divisor;
+        quotient++;
+    }
+    return quotient*sign;        //yha se answer return hoga
+}
+
+
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    //yha fn call hoga
+    cout<<divide(a,b);
+    return 0;
+}
+
+//output
+10 3
+3
