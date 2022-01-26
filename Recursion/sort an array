@@ -1,0 +1,47 @@
+//aditya verma
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void insert(vector<int> &v, int temp){
+    //sort k pehle ye fn call hoga qki insert me sirf insert call hua h pr sort me insert bhi tha isliye pehle insert ko call krna pdega
+    //ab jo vector ka size h agr wo 0 h ya last element temp se chota h to seedhe se yhi insert krdo aur return krdo
+    //wrna mtlb bada h last element to ise val me store krdo
+    //aur pop krdo ab firse insert fn call kro to fir check krega wo ki last element chota h han h to yhi insert krdo
+    //aur jo val nikal kr rkha tha use bhi ab push_back krdo aur return krdo
+    
+    if(v.size()==0 || v[v.size()-1]<=temp){
+        v.push_back(temp);
+        return;
+    }
+    int val=v[v.size()-1];
+    v.pop_back();
+    insert(v,temp);
+    v.push_back(val);
+    return;
+}
+
+void sort(vector<int> &v){
+    //sort me ye check kro ki size agr 1 h to sort krne ki zrurat hi nhi ese hi value return krdo
+    //then last element of vector ko temp me store krlo aur use pop krdo firse sort fn call kro to baki bache hue elements sort hojaenge
+    //then insert call kro aur hmne jo value nikali hui h temp me use insert krwana h ab uski sorted jagah pr
+    if(v.size()==1) return;
+    int temp=v[v.size()-1];
+    v.pop_back();
+    sort(v);
+    insert(v,temp);
+}
+
+int main()
+{
+    //int fn h to cout krna zruri h usk baad sort fn call krna
+    vector<int>v={0,1,5,2};
+    sort(v);
+    //for loop isliye lga h qki cout me array form me hi answer jaega
+    for(auto it:v)
+    cout<<it<<" ";
+    return 0;
+}
+
+//0 1 2 5
