@@ -1,0 +1,42 @@
+//string + unordered set
+
+#include <iostream>
+#include <unordered_set>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string text="hello world";
+    
+    string brokenLetters="od";
+    text+=' ';
+   //ye add isliye kr rhe h qki hm check empty pr akr hi krenge 
+        //jese hi empty mili string me wese hi hmne flag check kra
+    
+    int word=0;
+    int flag=0;
+    unordered_set<char>s;       //order matter nhi krta isliye unordered liya h aur frequency ki zrurat nhi h isliye set
+    for(auto c:brokenLetters){
+        s.insert(c);
+    }
+     //ab count of words hm word me store krenge aur mil gya to flag=1 nhi mila to flag =0
+    
+    //text me traverse krdo aur ' ' ispr check kro ki flag ki value kya h qki ' ' mila mtlb hm ek word traverse kr chuke h
+        //aur us traversal me agr hme word mil gya h to flag=1 wrna flag=0 hi rhega krne ki zrurat nhi h
+    for(int i=0;i<text.size();i++){
+        if(text[i]!=' '){
+            if(s.find(text[i])!=s.end()) flag=1;
+        }
+        else{
+            if(flag==0) word++;
+            flag=0;
+        }
+    }
+    cout<<word;
+   
+
+    return 0;
+}
+
+//output : 0
