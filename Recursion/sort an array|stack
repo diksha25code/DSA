@@ -30,7 +30,7 @@ void sort(vector<int> &v){
     int temp=v[v.size()-1];
     v.pop_back();
     sort(v);     //jaadu yha hora h jb apne aap sara bacha hua sort hojaega then jo temp me store krk rkha tha ab use insert krado
-    insert(v,temp);
+    insert(v,temp);       //ab yha seedha v.push_back nhi kra qki sort hone k baad thodina dalna h direct hme to ye dekhkrr dalna ki 2 kha fit hoga usk liye alg se insert fn call krna hi pdega
 }
 
 int main()
