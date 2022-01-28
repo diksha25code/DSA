@@ -29,7 +29,7 @@ void sort(vector<int> &v){
     if(v.size()==1) return;
     int temp=v[v.size()-1];
     v.pop_back();
-    sort(v);
+    sort(v);     //jaadu yha hora h jb apne aap sara bacha hua sort hojaega then jo temp me store krk rkha tha ab use insert krado
     insert(v,temp);
 }
 
