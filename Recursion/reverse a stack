@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+using namespace std;
+
+void insert(stack<int>&v,int temp){
+    //insert me hmesha khali assume krna h agr khali hoga stack tohi temp dalenge 
+    //wrna val me stack ka top store krte jao aur pop krte jao
+    //jaadu hota jaega aur stack : 2 3 4 5 mil jaega
+    //ab bss val me jo 1 store kra tha use upr hi push krdo mil gyi stack reverse hokr
+    if(v.size()==0){
+        v.push(temp);
+        return;
+    }
+    int val=v.top();
+    v.pop();
+    insert(v,temp);   //jaadu
+    //yha temp hi isliye dere h qki upr wali if condition me jese hi stack empty hoga hmko 5 hi push krana h
+    v.push(val);
+    return;
+    
+}
+
+void reverse(stack<int>&v){
+   //ab stack.size()=1 apne aap me increasing decreasing reverse sort sb push
+   //to pehle to whi agr size 1 h to return krdo mtlb ab jaadu perform hoga
+   //then agr nhi h to temp me top store krk pop kro aur 
+   //jaadu perform hota rhega aur yha stack: 4 3 2 1
+   //reverse hokr stack : 1 2 3 4 hojaega
+   //aur temp me 5 hoga ab insert krana h 5 prr last me isliye ek aur insert fn bnana pdega
+    if(v.size()==1) return;
+    int temp=v.top();
+    v.pop();
+    reverse(v);     //jaadu
+    insert(v,temp);
+    return;
+}
+
+
+int main()
+{
+    //input stack : 5          output stack : 1
+    //              4                         2
+    //              3                         3
+    //              2                         4
+    //              1                         5
+    //
+    
+    stack<int>v;
+    v.push(1);
+    v.push(2);
+    v.push(3);
+    v.push(4);
+    v.push(5);
+    //fn call
+    reverse(v);
+   
+    while(!v.empty()){
+        cout<<v.top()<<' ';
+        v.pop();
+    }
+
+    return 0;
+}
