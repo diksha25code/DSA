@@ -17,7 +17,7 @@ void insert(vector<int> &v, int temp){
     }
     int val=v[v.size()-1];
     v.pop_back();
-    insert(v,temp);
+    insert(v,temp);       //jaadu
     v.push_back(val);
     return;
 }
