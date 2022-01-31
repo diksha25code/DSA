@@ -1,0 +1,55 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
+
+int main() {
+    //dp(largest increasing subsequence)
+    //tc: n(logn) 
+    //upper bound use krk (jo element search kra h uska just bda element ka index dene ka tarika)
+    //dp array (n+1) size ki bnaenge
+    //ith index me last elemnt rkha h increasing subsequence ka(i=counter)
+    //jese 589 jiska length 3 h jo ki i=3 me h
+    //i=1 me jo possible chota hoga wha se shuru krenge taki zyada bde mil elements mil paye 
+    //isme price me i traverse hoga for loop me tb hmesha dp k liye naya index (idx) bnega jo ki upper bound se aega 
+    //price ka i=0 pr dp ka i=1 h (ab jb price[i] bda h dp[idx-1] se aur price[i] chota h dp[idx] se to dp[idx] me rkhdo price[i]) ab dp bhara gya h aur pura price traverse krne k baad jo bhi dp ka index khali hoga wha already infinty hogi ab peeche se traverse krenge dp ko jese hi koi bhi value milegi mtlb whi index longest incresing subsequence ki length h
+    
+    
+    int n;
+    cin>>n;
+    int price[n];
+     for(int i=0;i<n;i++){
+         cin>>price[i];
+     }
+    
+    int dp[n+1];
+    for(int i=1;i<=n;i++) dp[i]=INT_MAX;
+    dp[0]=INT_MIN;
+    
+    for(int i=0;i<n;i++){
+        int idx= upper_bound(dp,dp+n+1,price[i]) - dp;
+        if(price[i]>dp[idx-1] && price[i]<dp[idx]){
+            dp[idx]=price[i];
+        } 
+    }
+    
+    int ma=0;
+    for(int i=n;i>=0;i--){
+        if(dp[i]!=INT_MAX){
+            ma=i;
+            break;
+        }
+    }
+    cout<<ma<<endl;  
+    return 0;
+}
+
+//input
+6
+5 8 3 7 9 1
+//output
+3
