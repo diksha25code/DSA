@@ -1,8 +1,16 @@
+//basic approach h 
+//tc : O(n^2)
+// i-0 se subsets(8) tk jaega 
+//j-0 se n tk(3)
+//bn me har i ka binary number ajaega n size ka jese i=0 k liye bn=000 to fir isme for loop lgega j jo ki a[j] ki value represent krega ab isme jha 1 h wha wo a[j] ki value ajaegi wrna - lgado 
+//jese i=1 k liye bn=001 aur cout<<--3 qki 3 k index pr 1 h isliye sirf 3 aega isme 
+//har divide k baad bn=r krdo aur div/10 qki chota krte jana h ab no
 
 #include<bits/stdc++.h>
 #include <cmath>
 using namespace std;
 
+//ans me exact value banne k liye ans + r*power aur fir power ko*10 se bdate jao to jo ans hoga whi apna bn h ab
 int decimalTobinary(int n){
     int ans=0;
     int power=1;
@@ -57,3 +65,16 @@ int main()
 	
 	return 0;
 }
+
+//input
+3
+1 2 3
+//output
+---
+--3 
+-2 -
+-2 3 
+1 --
+1 -3 
+1 2 -
+1 2 3
