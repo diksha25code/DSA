@@ -1,0 +1,48 @@
+
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
+#include <map>
+using namespace std;
+
+
+set<vector<int> > s;            //globally declare set qki map me chl nhi rha tha and set me sort lgane ki bhi zrurat nhi hoti h
+
+void helper(vector<int>&A,int i,vector<int>temp){
+    //base condition
+    if(i==A.size()){                        //jb sara traverse hone k baad 
+        s.insert(temp);                     //set me jaengi hi wo values jo pehle se present nhi hongi
+        return;
+    }
+    
+    //jaadu yha temp me hora h
+    temp.push_back(A[i]);                  //jo ek element pr hm condition lga skte h ye whi h 
+    helper(A,i+1,temp);                    //ith in subset (1 ko chodkrr age recursion chaldo) temp me yha koi value hogi
+    temp.pop_back();                       //fir temp ko khali krdenge aur firse recursion call krenge
+    helper(A,i+1,temp);                    //ith not in subset
+}
+
+
+int main()
+{
+    vector<int>A={1,2,2};
+    
+    helper(A,0,{});                        //fn call
+   
+    for(auto temp:s){                    //ab ans 2-d vector h to cout lane k liye bhi 2 baar iterate krna pdega
+            for(auto i:temp){
+                cout<<i<<" ";
+            }
+             cout<<endl;                             //har subset next line me print hoga
+        }
+
+    return 0;
+}
+
+//output
+
+1 
+1 2 
+1 2 2 
+2 
+2 2 
