@@ -1,0 +1,26 @@
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string s="aaab";
+    int low=0;
+    int high=s.size()-1;
+    int flag=0;
+    while(high>low){
+        if(s[low]!=s[high]){
+            flag=1;
+        }
+        low++;
+        high--;
+    }
+    
+    if(flag) cout<<"No";
+    else cout<<"Yes";
+
+    return 0;
+}
+
+//no
