@@ -1,0 +1,52 @@
+
+
+//ye que index dega jo bhi jagah prr palindrome bna skte h us element ko hatakrr 
+
+
+
+#include <iostream>
+
+using namespace std;
+
+bool isp(string& s, int l, int h) {          //basic palindrome check krne
+        while (l < h) {
+            if (s[l] != s[h]) {
+                return false;
+            }
+            l++;
+            h--;
+        }
+        return true;
+    }
+
+int palindrome(string s){
+    int l=0;
+    int h=s.size()-1;
+    
+    while(l<h){
+        if(s[l]!=s[h]){
+            if(isp(s,l+1,h)) return l;         //agr ye chl gya to l
+            if(isp(s,l,h-1)) return h;         //agr ye chl gay to h
+            
+            return -1;                         //agr dono nhi chale to mtlb string kbhi palindrome bnegi hi ni
+        }
+        l++;
+        h--;
+    }
+    return -2;                                 //string palindrome hi h
+    
+}
+
+int main()
+{
+    
+    string s="aabaaaaa";
+    int idx=palindrome(s);
+    
+    cout<<idx;
+    
+    return 0;
+}
+
+
+//2
