@@ -1,0 +1,26 @@
+a [] : {10, 12, 13};
+a1 [] : {10,11};
+
+map<int,int>m;
+
+for(auto i:a){
+   m[i] = -1;
+}
+
+//to map me int,int form me values store hongi
+//m : (10,-1)
+//    (12,-1)
+//    (13,-1)
+
+vector<int>v;
+for(auto it: a1){
+if(m.find(it)!=m.end()) v.push_back(m[i));
+else v.push_back(0);
+}
+
+return v;
+
+//ab traverse kro a1 me it se
+//to agr map me it present h ko uski value jo hmne store kri thi wo print krado
+//yha m[i] = value dega mtlb (it.second) bataega
+// v: -1 , 0
