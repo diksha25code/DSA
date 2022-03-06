@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a[]={3,-2,5,-4,1,6};
+    int n=6;
+    int i=-1;
+    
+    //agr i=0 se shuru krte to bss i!=j condition bhi lgani pdti qki jese hi i=0 prr negative element mila to swap wo j=0 se kese krega
+    //stack smashing detected show hoga aur
+    for(int j=0;j<n;j++){
+        if(a[j]<0){
+            i++;
+            swap(a[i],a[j]);
+            
+        }
+    }
+    
+    
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    return 0;
+}
+
+//
+-2 -4 5 3 1 6 
