@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a[]={2,3,4,5,6};
+    int n=5;
+    
+    int currmax=a[0];
+    int currmin=a[0];
+ 
+ for(int i=0;i<n;i++){
+ 
+     //max element
+     if(a[i]>currmax){
+         currmax=a[i];
+     }
+     
+     //min element
+     if(a[i]<currmin){
+         currmin=a[i];
+     }
+ }
+ 
+cout<<"maxvalue"<<currmax<<endl;
+cout<<"minvalue"<<currmin<<endl;
+    return 0;
+}
+
+//output
+maxvalue6
+minvalue2
