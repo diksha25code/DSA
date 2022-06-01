@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a[]={7,1,5,3,6,4};
+    int n=6;
+    int cnt=0;
+    //jb traversee krenge to us value k bss right me dekhna h ki koi bdi value h ki ni agr h to max difference dekho
+    for(int i=0;i<n-1;i++){
+        for(int j=i+1;j<n;j++){
+            if(a[i]<a[j]){
+                cnt=max(cnt,a[j]-a[i]);
+            }
+        }
+    }
+    cout<<cnt;
+
+    return 0;
+}
+
+//5
+//tc : O(N)
