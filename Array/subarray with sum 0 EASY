@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+   
+using namespace std;
+
+
+
+int main()
+{
+  int a[]={4,2,-3,1,6};
+  int n=5;
+  
+  int f=0;
+        for(int i=0;i<n;i++){
+            int s=0;    //har traversal me naya sum chahiye isliye s=0 andr liya h ki jb dusra loop me check kre sum to 0 se shuru ho
+            
+            for(int j=i;j<n;j++){
+                s=s+a[j];
+                if(s==0) { 
+                    f=1;
+                    break;
+            }
+            // ab s=0 h to whi break krdo qki hme bss ek bhi mil gya to true return krdena h ans me
+        }
+        
+        }
+        //last me check krlo f ki value
+        if(f==1) cout<< "1";
+        else cout<< "0";
+    return 0;
+}
+
+//1
