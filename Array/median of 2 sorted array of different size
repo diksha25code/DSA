@@ -1,0 +1,49 @@
+
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+double Median(vector<int>& A, vector<int>& B){
+    
+    if(B.size()<A.size()) return Median(B,A);    //swap krdo qki A ko small rkhna h
+    //else me A chota hi h
+    int n1=A.size();                             
+    int n2=B.size();
+    
+    int l=0,h=n1;           //A k end points 
+    
+    while(l<=h){            //ye condition must h
+                                      //cut 1 me pehle dekho fir cut2 (n1+n2+1) ye agr odd even kuch bhi hua to dono me valid h
+        int cut1= (l+h)/2;
+        int cut2= (n1+n2+1)/2 - cut1;    //n1=5, cut1=2 then cut2=5-2=3
+                                                //base conditions 
+        int l1= cut1==0 ? INT_MIN : A[cut1-1];    //agr l1 h hi ni to minimum
+        int l2= cut2==0 ? INT_MIN : B[cut2-1];    //agr l2 h hi to minimum
+        
+        int r1= cut1==n1 ? INT_MAX : A[cut1];     //agr r1 h hi ni to max
+        int r2= cut2==n2 ? INT_MAX : B[cut2];     //agr r2 h hi ni to max
+        
+        if(l1<=r2 && l2<=r1){                     //valid condition cut ki
+            if((n1+n2)%2==0) return (max(l1,l2)+min(r1,r2))/2.0;     //fir even check kro
+            else return max(l1,l2);         //odd (left isliye qki ek hi value chahiye jo ki n/2 hoti h odd me )
+        }
+        else if(l1>r2) h=cut1-1;            //agr condition valid nhi h to A me hi shift krenge (yha l1 bda h to use chota krna pdega )
+        else l=cut1+1;           //(l2>r1) yha r1 chota h to use bda krna pdega 
+        //right me jaenge to bda hoga left me jaenge to chota
+    }
+    return 0.0;          //agr 2 partitions nhi mile mtlb dono Vectors sortde nhi h aur us case me 0.0 return hoga 
+    //but esa ni hoga qki que me hi sorted array given rhega
+}
+
+int main()
+{
+    vector<int> arr1 = { -5, 3, 6, 12, 15 };
+    vector<int> arr2 = { -12, -10, -6, -3, 4, 10 };
+    cout << "Median of the two arrays are" << endl;
+    cout << Median(arr1, arr2);
+
+    return 0;
+}
+
+//3
