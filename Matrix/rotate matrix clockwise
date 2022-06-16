@@ -1,0 +1,35 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main()
+{
+    int N=4; 
+    
+           int temp[N][N];
+            int arr[N][N]={ { 1, 2, 3, 4 },
+                            { 5, 6, 7, 8 },
+                            { 9, 10, 11, 12 },
+                            { 13, 14, 15, 16 } };
+ 
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            temp[j][N-i-1]=arr[i][j];
+        }
+    }
+    
+for(int i=0;i<N;i++){
+    for(int j=0;j<N;j++){
+        cout<<temp[i][j]<<" ";
+    }
+    cout<<endl;
+}
+    return 0;
+}
+
+//simple analysis krna h bss iska to temp me lgane wali condition mil jaegi
+//for anticlockwise temp[n-j-1][i] ho jaega
+//13 9 5 1 
+14 10 6 2 
+15 11 7 3 
+16 12 8 4
