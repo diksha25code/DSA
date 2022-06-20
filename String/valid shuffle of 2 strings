@@ -1,0 +1,35 @@
+
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    string s1="xy";
+    string s2="12";
+    string ans="x1y2";
+    
+    int l1=s1.length();
+    int l2=s2.length();
+    int l=ans.length();
+    
+    int i=0;   //s1 k liye
+    int j=0;   //s2 k liye
+    int k=0;   //ans k liye
+    int flag=0;
+    
+    while(k<l){      //ans pr loop chalega aur check krna hoga ki 
+      if(i<l1 and s1[i]==ans[k]) i++;     //s1 me i < l1 se & value same ho dono ki i,k prr
+      else if(j<l2 and s2[j]==ans[k]) j++;   //same with s2
+      else{         //wrna break krdo fn
+          flag=1;
+          break;
+      }
+    }
+    if(i<l1 and j<l2) cout<<"1";   //end me to traverse krte hue l1,l2 k end tk ahi gya hoga 
+    else cout<<"0";
+
+    return 0;
+}
+
+//1
