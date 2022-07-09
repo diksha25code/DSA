@@ -1,0 +1,3 @@
+same as longest path in matrix bss isme max ki jagah add krte jaenge to get the paths
+and also yha answer bda hiskat h to divide by modulo before returning the value
+dp declare krte time size dekha kro m,n ka 
